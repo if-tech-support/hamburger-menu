@@ -9,16 +9,17 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
   </head>
   <body>
     <header class="head" id="app">
       <nav class="nav">
-        <div class="nav__icon">
+        <div v-show="!nav.isShow" class="nav__icon" @click="showNav">
           <i class="fas fa-bars fa-3x"></i>
         </div>
-        <div class="nav__inner">
+        <div v-show="nav.isShow" class="nav__inner">
           <div class="nav__icon nav__icon--times">
-            <i class="fas fa-times fa-3x"></i>
+            <i class="fas fa-times fa-3x" @click="hiddenNav"></i>
           </div>
           <ul class="nav__menu">
             <li class="nav__item">
@@ -35,8 +36,10 @@
             </li>
           </ul>
         </div>
-        <div class="nav__bg"></div>
+        <div v-show="nav.isShow" class="nav__bg" @click="hiddenNav"></div>
       </nav>
     </header>
+
+    <script src="app.js"></script>
   </body>
 </html>
